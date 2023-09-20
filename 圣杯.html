@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .cantain {
+        height: 100px;
+        padding: 0 200px;
+      }
+      .center,
+      .left,
+      .right {
+        height: 100%;
+        float: left;
+      }
+      .center {
+        background-color: pink;
+        width: 100%;
+      }
+      .left {
+        position: relative;
+        width: 200px;
+        background-color: skyblue;
+        margin-left: -100%;
+        left: -200px;
+      }
+      .right {
+        width: 200px;
+        background-color: skyblue;
+        margin-left: -200px;
+        position: relative;
+        left: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cantain">
+      <div class="center">www</div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+  </body>
+</html>

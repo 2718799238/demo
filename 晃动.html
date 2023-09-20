@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: "iconfont"; /* Project id 4257730 */
+        src: url("//at.alicdn.com/t/c/font_4257730_s0uqg8fevn.woff2?t=1695044602328")
+            format("woff2"),
+          url("//at.alicdn.com/t/c/font_4257730_s0uqg8fevn.woff?t=1695044602328")
+            format("woff"),
+          url("//at.alicdn.com/t/c/font_4257730_s0uqg8fevn.ttf?t=1695044602328")
+            format("truetype");
+      }
+      .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 32px;
+        color: #fff;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        background-color: #10212f;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .tab {
+        position: relative;
+        width: 360px;
+        height: 90px;
+      }
+      ul {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      ul .item {
+        position: relative;
+        width: 90px;
+        height: 90px;
+        background-color: pink;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background: linear-gradient(#fff2, transparent);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25 25px rgba(0, 0, 0, 0.25);
+        transition: 0.5s;
+        border-radius: 10px;
+
+        backdrop-filter: blur(10px);
+        rotate: calc(var(--r) * 1deg);
+      }
+      .icon {
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+      }
+      .title {
+        background-color: burlywood;
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+      }
+
+      ul:hover .item {
+        margin: 0 -45px;
+        rotate: 0deg;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab">
+      <ul>
+        <li class="item" style="--r: -15">
+          <span class="icon"><i class="iconfont">&#xe62a;</i></span>
+          <span class="title">Design</span>
+        </li>
+        <li class="item" style="--r: 5">
+          <span class="icon"><i class="iconfont">&#xe62a;</i></span>
+          <span class="title">Design</span>
+        </li>
+        <li class="item" style="--r: 25">
+          <span class="icon"><i class="iconfont">&#xe62a;</i></span>
+          <span class="title">Design</span>
+        </li>
+        <li class="item" style="--r: -15">
+          <span class="icon"><i class="iconfont">&#xe62a;</i></span>
+          <span class="title">Design</span>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

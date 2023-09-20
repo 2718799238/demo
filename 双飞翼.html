@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .cantain {
+        height: 100px;
+      }
+      .left,
+      .right,
+      .center {
+        float: left;
+        height: 100%;
+      }
+      .center {
+        width: 100%;
+      }
+      .inner {
+        height: 100%;
+        background-color: aqua;
+        padding: 0 200px;
+      }
+      .left {
+        position: relative;
+        background-color: pink;
+        width: 200px;
+        margin-left: -100%;
+        /* left: -200px; */
+      }
+      .right {
+        background-color: pink;
+        width: 200px;
+        margin-left: -200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cantain">
+      <div class="center"><div class="inner">mmmmm</div></div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+
+    <!-- shengbei -->
+  </body>
+</html>

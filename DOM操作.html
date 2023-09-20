@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 name="h" class="title" id="h">hello</h1>
+    <script>
+      // 查询文件节点
+      const h1El = document.querySelector("h1");
+      console.log(h1El);
+
+      //   DOM的获取节点：
+      const h1E1Id = document.getElementById("h"); //单一返回一个标签
+      const h1E1Name = document.getElementsByName("h"); //通过name属性来返回node数组
+      const h1ElClass = document.getElementsByClassName("title");
+      const h1ElTag = document.getElementsByTagName("h1");
+      console.log(h1E1Id);
+      console.log(h1El === h1E1Id);
+      console.log(h1E1Name);
+      console.log(h1ElClass);
+      console.log(h1ElTag);
+    </script>
+  </body>
+</html>

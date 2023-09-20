@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <canvas></canvas>
+  <body>
+    <script>
+      const canvansEl = document.querySelector("canvas");
+      const ctx = canvansEl.getContext("2d", { willReadFrequently: true });
+      function init() {
+        const img = new Image();
+        img.src = "./assest/th.jpg";
+        img.onload = () => {
+          canvansEl.width = img.width;
+          canvansEl.height = img.height;
+          ctx.drawImage(img, 0, 0);
+        };
+      }
+      init();
+      canvansEl.addEventListener("click", (el) => {
+        const x = el.offsetX;
+        const y = el.offsetY;
+        function getColor(x, y) {
+          const i = ponint2Index(x, y);
+          return [
+            imgDate.data[i],
+            imgDate.data[i + 1],
+            imgDate.data[i + 2],
+            imgDate.data[i + 3],
+          ];
+        }
+        const imgDate = ctx.getImageData(
+          0,
+          0,
+          canvansEl.width,
+          canvansEl.height
+        );
+        const clickColor = getColor(x, y);
+
+        function changeColor(x, y) {
+          if (x < 0 || x > ctx.width || y < 0 || y > ctx.height) {
+            return;
+          }
+          const index = ponint2Index(x, y);
+          const i = getColor(x, y);
+          if (diff(i, clickColor) > 100) {
+            return;
+          }
+          //   if (diff(i, clickColor) === 0) {
+          //     return;
+          //   }
+          imgDate.data.set([0, 255, 0, 255], index);
+          changeColor(x + 1, y);
+          changeColor(x, y + 1);
+          changeColor(x - 1, y);
+          changeColor(x, y - 1);
+        }
+
+        changeColor(x, y);
+        ctx.putImageData(imgDate, 0, 0);
+      });
+      function ponint2Index(x, y) {
+        return (y * canvansEl.width + x) * 4;
+      }
+
+      function diff(color1, color2) {
+        return (
+          Math.abs(color1[0] - color2[0]) +
+          Math.abs(color1[1] - color2[1]) +
+          Math.abs(color1[2] - color2[2]) +
+          Math.abs(color1[3] - color2[3])
+        );
+      }
+    </script>
+  </body>
+</html>

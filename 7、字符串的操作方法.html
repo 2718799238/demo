@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 基本数据类型转换
+      const num = 888;
+      const arr = [8, 9, { name: "dong" }];
+      console.log(num.toString());
+      console.log(arr.toString());
+      console.log("" + num); //会发生隐式转换，数字类型的会转换成字符串类型
+
+      //   indexOf与lastIndexOf：前者是返回第一次出现要查询的字符串的位置，后者为最后一次出现的位置。
+      console.log("-------------------indexOf--lastIndexOf------------");
+      const str = "Hello World,I Like It.";
+      const newIndexOf = str.indexOf("l");
+      console.log("indexOf:", newIndexOf);
+      const NewLastIndexOf = str.lastIndexOf("l");
+      console.log("lastIndexOf:", NewLastIndexOf); //这里lastIndexOf是逆向查询的，因此，当设置第二个参数的时候，需要注意，最后一次出现的位置，可能会提前。
+      // replace（）：字符串的替换，执行后返回新的字符串，不改变原来的字符串。
+      console.log("-------------------replace----------------");
+      //1、简单用法
+      const replaceStr1 = str.replace("o", "a"); //这里第一个参数也可以是正则表达，不过需要在表达式后面加上//g
+      console.log(replaceStr1);
+      //2、复杂用法
+      const replaceStr2 = str.replace(/o/g, () => {
+        //正则用法就如这样。
+        return "99";
+      });
+      console.log(replaceStr2);
+
+      //chartAt（）：用于查找指定下标的字符,超出返回空字符
+      console.log("-------------------chartAt------------");
+      const chartAtStr = str.charAt(2);
+      console.log(chartAtStr);
+
+      // substr（）：在字符串中指定起始位置和结束位置来截取字符串片段。有俩个参数，第一个参数是起始位置，必填，如果是负数则是从尾部进行截取的。第二个参数截取的长度。
+      console.log("-------------------substr------------");
+      const substrStr = str.substr(2, 5);
+      const substrStr2 = str.substr(-5, 3);
+      console.log(substrStr + "----" + substrStr2);
+
+      // substring():用于截取指定倆个下标之间的字符串。有两个参数，必须是非负整数，否则返回空字符串。
+      console.log("-------------------substring------------");
+      const subStringStr = str.substring(2, 6);
+      console.log(subStringStr);
+
+      //字符串大小写转换
+      console.log(str.toUpperCase());
+      console.log(str.toLowerCase());
+
+      // 字符串匹配match，有一个参数，且该参数必须传入正则表达式。在其正则表达式后面添加g，则可以进行全局，匹配多个需要的字符。否则就是返回一个类数组。
+      console.log("-------------------match------------");
+
+      const matchStr = str.match(/o/g);
+      console.log(matchStr);
+      // 还有exec（）方法，其用法和match一样，只有一个参数，且必须传入正则表达式。
+
+      //search():查询指定的字符串第一次出现的位置，并且返回其第一次出现的下标。
+      console.log("-------------------search------------");
+      const searchStr = str.search("o");
+      console.log(searchStr);
+
+      //trim():去除前后的字符串中的空格，中间的不可以去除。其中trimStar()和trimleft可以去除字符串左边的空格，同理其trimEnd和trimright可以去除右边的空格。
+      console.log(str.trim());
+    </script>
+  </body>
+</html>
