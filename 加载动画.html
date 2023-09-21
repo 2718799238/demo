@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      section {
+        background-color: #042104;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: aColor 4s linear infinite;
+      }
+      .contain {
+        display: flex;
+      }
+      .circle-out {
+        width: 150px;
+        height: 150px;
+        position: relative;
+        margin: 0 20px;
+      }
+      .circle {
+        position: absolute;
+        top: 0;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        rotate: calc(var(--r) * 18deg);
+      }
+      .circle::before {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+
+        border-radius: 50%;
+        background-color: #01fe0c;
+        box-shadow: 0 0 10px #01fe0c, 0 0 20px #01fe0c, 0 0 40px #01fe0c,
+          0 0 60px #01fe0c, 0 0 80px #01fe0c, 0 0 100px #01fe0c;
+        transform: scale(0.1);
+        animation: dot 4s linear infinite;
+
+        animation-delay: calc(var(--r) * 0.1s);
+      }
+      .circle-out:nth-child(1) {
+        rotate: -219deg;
+      }
+      .circle-out:nth-child(2) {
+        rotate: -70deg;
+      }
+      @keyframes dot {
+        0% {
+          transform: scale(1);
+        }
+        50%,
+        100% {
+          transform: scale(0.1);
+        }
+      }
+      @keyframes aColor {
+        0% {
+          filter: hue-rotate(0deg);
+        }
+        100% {
+          filter: hue-rotate(360deg);
+        }
+      }
+      .circle-out:nth-child(2) .circle::before {
+        animation-delay: calc(var(--r) * -0.1s);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="contain">
+        <div class="circle-out">
+          <span class="circle" style="--r: 1"></span>
+          <span class="circle" style="--r: 2"></span>
+          <span class="circle" style="--r: 3"></span>
+          <span class="circle" style="--r: 4"></span>
+          <span class="circle" style="--r: 5"></span>
+          <span class="circle" style="--r: 6"></span>
+          <span class="circle" style="--r: 7"></span>
+          <span class="circle" style="--r: 8"></span>
+          <span class="circle" style="--r: 9"></span>
+          <span class="circle" style="--r: 10"></span>
+          <span class="circle" style="--r: 11"></span>
+          <span class="circle" style="--r: 12"></span>
+          <span class="circle" style="--r: 13"></span>
+          <span class="circle" style="--r: 14"></span>
+          <span class="circle" style="--r: 15"></span>
+          <span class="circle" style="--r: 16"></span>
+          <span class="circle" style="--r: 17"></span>
+          <span class="circle" style="--r: 18"></span>
+          <span class="circle" style="--r: 19"></span>
+          <span class="circle" style="--r: 20"></span>
+        </div>
+        <div class="circle-out">
+          <span class="circle" style="--r: 1"></span>
+          <span class="circle" style="--r: 2"></span>
+          <span class="circle" style="--r: 3"></span>
+          <span class="circle" style="--r: 4"></span>
+          <span class="circle" style="--r: 5"></span>
+          <span class="circle" style="--r: 6"></span>
+          <span class="circle" style="--r: 7"></span>
+          <span class="circle" style="--r: 8"></span>
+          <span class="circle" style="--r: 9"></span>
+          <span class="circle" style="--r: 10"></span>
+          <span class="circle" style="--r: 11"></span>
+          <span class="circle" style="--r: 12"></span>
+          <span class="circle" style="--r: 13"></span>
+          <span class="circle" style="--r: 14"></span>
+          <span class="circle" style="--r: 15"></span>
+          <span class="circle" style="--r: 16"></span>
+          <span class="circle" style="--r: 17"></span>
+          <span class="circle" style="--r: 18"></span>
+          <span class="circle" style="--r: 19"></span>
+          <span class="circle" style="--r: 20"></span>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
