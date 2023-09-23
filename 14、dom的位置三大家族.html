@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .father {
+        width: 300px;
+        height: 800px;
+        position: relative;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        position: absolute;
+        left: 500px;
+        top: 200px;
+        margin: 50px;
+        padding: 50px;
+        border: 10px solid gold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="box">wwwwwwwwwwwww</div>
+    </div>
+    <script>
+      //offset家族
+      const boxEl = document.querySelector(".box");
+      console.log(boxEl.offsetTop);
+      console.log(boxEl.offsetLeft);
+      console.log(boxEl.offsetWidth);
+      console.log(boxEl.offsetHeight);
+      console.log(boxEl.offsetParent);
+      console.log("-----------------------client--------------------");
+      //   client家族
+      console.log(boxEl.clientWidth);
+      console.log(boxEl.clientWidth);
+      console.log(boxEl.clientLeft);
+      console.log(boxEl.clientTop);
+      console.log(boxEl.getClientRects());
+      console.log(boxEl.getBoundingClientRect());
+
+      console.log("-----------------------scroll--------------------");
+      console.log(boxEl.scrollHeight);
+      console.log(boxEl.scrollWidth);
+      console.log(boxEl.scrollLeft);
+      console.log(boxEl.scrollTop);
+
+      console.log("-----------------------window--------------------");
+      //   BOM的位置和大小
+      console.log(window.screenX, window.screenY); //这是浏览器窗口距离屏幕左上角的倆个距离
+      console.log(window.innerHeight, window.innerWidth); //当前窗口的可见部分的高度和宽度
+      console.log(window.outerHeight, window.outerWidth);
+    </script>
+  </body>
+</html>
