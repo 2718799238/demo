@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 400px;
+        height: 400px;
+        margin-top: 30px;
+      }
+      .item {
+        width: 100%;
+        height: 50px;
+        background-color: pink;
+        border: 3px solid green;
+        margin-bottom: 10px;
+        position: relative;
+      }
+      .moveIng {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- 入口 -->
+    <div id="app">
+      <div class="box" ref="divRef">
+        <template v-for="(item,index) in darg.list" :key="item.id">
+          <div
+            @dragstart="dragStart($event,index)"
+            @dragend="dragEnd($event)"
+            @dragover="dargOver($event)"
+            @dragenter="dargEnter($event,index)"
+            class="item"
+            draggable="true"
+          >
+            {{item.name}}
+          </div>
+        </template>
+      </div>
+    </div>
+    <script>
+      const { createApp, ref, reactive } = Vue;
+      createApp({
+        setup() {
+          const darg = reactive({
+            list: [
+              { name: "a", id: 0 },
+              { name: "b", id: 1 },
+              { name: "c", id: 2 },
+              { name: "d", id: 3 },
+              { name: "e", id: 4 },
+            ],
+          });
+          let dargIndex = 0;
+          let divRef = ref(null);
+          function dragStart(e, index) {
+            console.log("dargStart");
+            e.stopPropagation();
+            dargIndex = index;
+            setTimeout(() => {
+              e.target.classList.add("moveIng");
+            }, 0);
+          }
+          function dragEnd(e) {
+            console.log("dargEnd");
+
+            e.target.classList.remove("moveIng");
+          }
+          function dargEnter(e, index) {
+            console.log("dargEnter");
+            e.preventDefault();
+            if (dargIndex !== index) {
+              const source = darg.list[dargIndex];
+              darg.list.splice(dargIndex, 1);
+              darg.list.splice(index, 0, source);
+              dargIndex = index;
+            }
+          }
+          function dargOver(e) {
+            console.log("dargOver");
+            // console.log(e);
+            e.preventDefault();
+            e.dataTransfer.dropEffect = "move";
+          }
+
+          return {
+            darg,
+            dragStart,
+            dragEnd,
+            dargEnter,
+            dargOver,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

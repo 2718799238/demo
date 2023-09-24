@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: blueviolet;
+      }
+      .box2 {
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+      }
+      p {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      ondragenter="dragEnter(event)"
+      ondragover="dragOver(event)"
+      class="box"
+    >
+      我是盒子
+    </div>
+    <div
+      class="box2"
+      ondragenter="dragEnter(event)"
+      ondragover="dragOver(event)"
+    >
+      我时盒子2
+    </div>
+    <p
+      draggable="true"
+      ondragstart="dragStart(event)"
+      ondragend="dragEnd(event)"
+    >
+      我是孩子
+    </p>
+    <script>
+      let m = null;
+      function dragStart(e) {
+        // e.preventDefault();
+        console.log("start", e);
+      }
+      function dragEnd(e) {
+        m.appendChild(e.target);
+        console.log("end", e);
+      }
+      function dragEnter(e) {
+        e.preventDefault();
+        m = e.target;
+        console.log("enter", e);
+      }
+      function dragOver(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+        console.log("over");
+      }
+    </script>
+  </body>
+</html>
