@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+      }
+      .c {
+        transition: 0.5s;
+        /* opacity: 0; */
+      }
+      .active {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+      const str =
+        "如果人生是一把火，坚持就是一根火柴，划燃了希望；如果人生是一碗水，坚持就是那只碗，承载着理想；如果人生是一场实验，坚持就是一瓶试剂，让这场实验终收获成功的欢乐。“不成功的实验，做得再多也不会快乐的！还不如放弃不坚持！”本来我心中的坚持也该随着一切的结束而烟消云散，可是，它却仍如不死鸟般牵挂在我的心口。我还能记起阳子和纽扣与我初遇时，那句坚持永远快乐做实验的誓言，如今，这句话已经刻入我的心中，却被她们几乎遗忘。";
+      const strArr = str.split("");
+      const box = document.querySelector(".box");
+      //   let i = 0;
+      //   function jj(i) {
+      //     const span = document.createElement("span");
+      //     span.classList.add("c");
+      //     span.innerText = strArr[i];
+      //     setTimeout(() => {
+      //       box.appendChild(span);
+      //       if (i < strArr.length) {
+      //         jj(++i);
+      //       }
+      //       setTimeout(() => {
+      //         span.classList.add("active");
+      //       });
+      //     }, 100);
+      //   }
+      //   jj(i);
+      function write() {
+        const span = document.createElement("span");
+        const del = strArr.shift();
+        let opc = 0;
+        box.appendChild(span);
+        const fad = setInterval(() => {
+          opc++;
+          span.style.textShadow =
+            "0 0 5px #57606f, 0 0 10px #57606f,0 0 4px #57606f,0 0 12px #ffa502";
+          span.style.filter = `blur(${10 / opc - 1}px)`;
+          span.style.opacity = opc / 10;
+          span.style.color = "transparent";
+          span.innerText = del;
+          if (opc > 10) {
+            clearInterval(fad);
+            span.style.color = "#000";
+            span.style.textShadow = "none";
+          }
+        }, 50);
+      }
+      let i = 0;
+      const writeS = setInterval(() => {
+        if (i <= strArr.length - 1) {
+          write();
+        }
+      }, 50);
+    </script>
+  </body>
+</html>
