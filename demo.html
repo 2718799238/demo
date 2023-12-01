@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .contain {
+        width: 100%;
+        height: 100px;
+        position: relative;
+        margin: 50px;
+      }
+      .left .right .center {
+        float: left;
+      }
+      .left,
+      .right {
+        width: 200px;
+        height: 100%;
+        background-color: aqua;
+        position: absolute;
+
+        top: 0;
+      }
+      .left {
+        left: 0;
+      }
+      .right {
+        right: 0 !important;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        background-color: skyblue;
+      }
+
+      .content {
+        width: 400px;
+        height: 400px;
+        background-color: skyblue;
+      }
+      .one {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+      .two {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contain">
+      <div class="center">center</div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+
+    <!-- margin负的值 -->
+
+    <div class="content">
+      <div class="one"></div>
+      <div class="two"></div>
+    </div>
+  </body>
+</html>

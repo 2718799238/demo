@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //  set集合可以传入字符串，数组，等可迭代对象
+      const obj = {
+        name: "dongCoder",
+        age: 18,
+        sex: "man",
+        [Symbol.iterator]() {
+          let index = 0;
+          const keys = Object.keys(this);
+          const objIterator = {
+            next: () => {
+              if (index < keys.length) {
+                return {
+                  value: this[keys[index++]],
+                  done: false,
+                };
+              } else {
+                return {
+                  value: undefined,
+                  done: true,
+                };
+              }
+            },
+          };
+          return objIterator;
+        },
+      };
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      const str = "dongCoder";
+      const setArr = new Set(str);
+      console.log(setArr);
+      console.log(new Set(obj));
+      setArr.add(11);
+      console.log(setArr.size); //获取set集合的长度
+      setArr.delete(11); //删除
+      console.log(setArr.has(11)); //判断是否存在
+
+      //   weakset集合和set类似，但是为弱引用，一旦没有其他对象引用这个添加的对象，weakset引用的对象就会被GC回收。
+      const obj2 = new Object();
+      const weakSet = new WeakSet();
+      weakSet.add(obj2);
+      weakSet.add(arr);
+      console.log(weakSet);
+    </script>
+  </body>
+</html>

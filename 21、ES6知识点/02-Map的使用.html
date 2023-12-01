@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const map = new Map();
+      map.set("name", "dongCoder"); //map与obj不同的是，其key值可以为很多类型，比如数组，对象，symbol，等等，而obj的可以只可以为str或symbol
+      console.log(map);
+      console.log(map.size); //获取map集合的长度
+
+      console.log(map.has("name")); //判断是否存在
+      console.log(map.get("name")); //获取值
+      //   map.delete("name"); //删除
+
+      //   类型转换
+      //   Map转为数组
+      let arr = [...map];
+
+      //   数组转为Map
+      let newMap = new Map(arr);
+
+      //   Map转为对象
+      let obj = Object.fromEntries(map);
+      console.log(obj);
+
+      //   对象转Map
+      let newMap2 = new Map(Object.entries(obj));
+      console.log(newMap2);
+
+      //   weakMap:与weakSet类似，直接对象作为key，弱引用，一旦没有其他对象引用这个添加的对象，weakMap引用的对象就会被GC回收。
+      //   与weakSet不同的是，weakMap的key可以是任意类型
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let str = "dongCoder";
+      str = str.padStart(14, "Hao55555"); // 填充前面,第一个参数，表示填充完毕后字符串的长度，
+      //   第二个参数表示要添加的字符串，如果要求长度小于添加的长度，则会把添加的字符串进行尾部截取
+      console.log(str);
+      str = str.padEnd(17, "Hao");
+      console.log(str);
+    </script>
+  </body>
+</html>
